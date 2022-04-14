@@ -1,0 +1,10 @@
+{
+    "import": {
+        "prefix": "imp",
+        "body": "import ${0:moduleName} from 'lodash/${0:module}';"
+      },
+      "import lodash/get": {
+        "prefix": "get",
+        "body": "import get from 'lodash/get';"
+      }
+}
