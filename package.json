@@ -26,6 +26,8 @@
 		"lint": "eslint src --ext ts",
 		"test": "node ./out/test/runTest.js"
 	},
+  "publisher": "antn9x",
+  "repository": "https://github.com/antn9x/lodash-import-sub-module",
 	"devDependencies": {
 		"@types/vscode": "^1.66.0",
 		"@types/glob": "^7.2.0",
