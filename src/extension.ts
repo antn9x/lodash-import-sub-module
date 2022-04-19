@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import { allLodashMethods } from './constants';
+import { oneParamFunc, towParamsFunc } from './constants';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -26,15 +26,14 @@ export function activate(context: vscode.ExtensionContext) {
     }
   });
   const provider = vscode.languages.registerCompletionItemProvider(['javascript', 'typescript'], {
-
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
-
       // return all completion items as array
-      return allLodashMethods.map(method => {
+      return [...oneParamFunc, ...towParamsFunc].map(method => {
         const snippetCompletion = new vscode.CompletionItem(`${method}`);
         snippetCompletion.filterText = `${method}`;
         snippetCompletion.detail = `lodash/${method}`;
-        snippetCompletion.insertText = new vscode.SnippetString(`${method}($1, $2)`);
+        const str = oneParamFunc.includes(method) ? `${method}($1)` : `${method}($1, $2)`;
+        snippetCompletion.insertText = new vscode.SnippetString(str);
         snippetCompletion.command = {
           command: 'extension.import-lodash-sub-module',
           arguments: [method],

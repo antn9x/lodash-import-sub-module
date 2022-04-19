@@ -1,8 +1,8 @@
 {
   "name": "lodash-import-sub-module",
-	"displayName": "lodash-import-sub-module",
-	"description": "",
-	"version": "0.0.1",
+	"displayName": "Lodash import sub module",
+	"description": "Import lodash submodule for optimization.",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
@@ -16,6 +16,7 @@
 	"contributes": {
 	},
 	"scripts": {
+    "deploy": "vsce package",
 		"vscode:prepublish": "yarn run package",
 		"compile": "webpack",
 		"watch": "webpack --watch",
