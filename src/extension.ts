@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
       // return all completion items as array
       return [...oneParamFunc, ...towParamsFunc].map(method => {
         const snippetCompletion = new vscode.CompletionItem(`${method}`);
-        snippetCompletion.filterText = `${method}`;
+        snippetCompletion.filterText = `_${method}`;
         snippetCompletion.detail = `lodash/${method}`;
         const str = oneParamFunc.includes(method) ? `${method}($1)` : `${method}($1, $2)`;
         snippetCompletion.insertText = new vscode.SnippetString(str);

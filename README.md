@@ -2,6 +2,8 @@
 
 This is extension improve snippet and auto import lodash sub module;
 
+`use prefix _ then have suggest`
+
 ## Features
 
 Import lodash methods as normally but it from sub module;
